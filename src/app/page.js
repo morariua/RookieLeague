@@ -1,5 +1,7 @@
+'use client';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import FileUploader from '../../components/fileUploader';
 
 export const HomePage = () => {
   const [campers, setCampers] = useState([]);

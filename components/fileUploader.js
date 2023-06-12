@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import connectToDatabase from './db';
+import connectToDatabase from './data';
 
 const FileUploader = () => {
   const [selectedFile, setSelectedFile] = useState(null);
