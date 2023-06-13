@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import FileUploader from '../../components/fileUploader';
 
-export const HomePage = () => {
+import Home from '../pages/home';
+import SiteList from '../pages/SiteList';
+import CamperList from '../pages/CamperList';
+
+const HomePage = () => {
   const [campers, setCampers] = useState([]);
   const [staff, setStaff] = useState([]);
   const [sites, setSites] = useState([]);
@@ -38,12 +42,19 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome to the Rookie League Management System</h1>
+    <>
       <FileUploader />
-      {/* Render the site, camper, and staff cards here */}
-    </div>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sites" element={<SiteList sites={sites} />} />
+          <Route path="/campers" element={<CamperList campers={campers} />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 
 export default HomePage;
+
